@@ -3,9 +3,9 @@ services:
     container_name: smb35server-docker
     image: ghcr.io/royaltongue/smb35server-docker:test
     environment:
-      PUID: 1000
-      GUID: 1000
-      SERVER_ADDRESS: myveryownsmbserver.com
+      PUID: 1000 # Optional
+      GUID: 1000 # Optional
+      SERVER_ADDRESS: myveryownsmbserver.com # Not used yet
     hostname: smb35server-docker
     ports:
       - 20000:20000

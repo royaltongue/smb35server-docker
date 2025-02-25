@@ -4,7 +4,7 @@ LABEL Description="Docker container for running a custom Mario 35 Server"
 LABEL Original-Server-Implementation="https://github.com/kinnay/SMB35"
 LABEL SMB35-Continued-Interest="https://smb35server.com/emulator"
 
-LABEL org.opencontainers.image.source https://github.com/royaltongue/smb35server-docker
+LABEL org.opencontainers.image.source="https://github.com/royaltongue/smb35server-docker"
 
 ARG DEBIAN_FRONTEND=noninteractive
 

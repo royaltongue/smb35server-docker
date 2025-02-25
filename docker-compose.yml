@@ -1,7 +1,7 @@
 services:
   smb35server-docker:
     container_name: smb35server-docker
-    image: smb35server-docker:test
+    image: ghcr.io/royaltongue/smb35server-docker:test
     environment:
       PUID: 1000
       GUID: 1000

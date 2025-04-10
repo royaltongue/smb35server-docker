@@ -42,11 +42,11 @@ RUN cd /app
 RUN git clone https://github.com/kinnay/SMB35.git
 RUN pip3 install nintendoclients
 
-RUN mkdir SMB35/source/resources
-RUN cd SMB35/source/resources
-
 RUN rm /app/SMB35/source/dashboard.py
 COPY dashboard.py /app/SMB35/source/dashboard.py
 COPY dashboard.html /app/SMB35/source/dashboard.html
+
+RUN mkdir SMB35/source/resources
+RUN cd SMB35/source/resources
 
 CMD [ "python3", "main.py"]

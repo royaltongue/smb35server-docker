@@ -31,9 +31,6 @@ RUN apt-get install -y git \
 RUN groupadd -g ${GUID} smb35servergroup
 RUN useradd -m -u  ${PUID} smb35serveruser
 RUN smb35serverpassword="$(makepasswd --chars 20)" && echo 'smb35serveruser:'${smb35serverpassword} | chpasswd
-
-COPY docker-entrypoint.sh /app
-RUN chown ${PUID}:${GUID} /app/docker-entrypoint.sh
 RUN su smb35serveruser
 
 RUN cd /app
@@ -47,4 +44,4 @@ RUN rm /app/SMB35/source/dashboard.py
 COPY dashboard.py /app/SMB35/source/dashboard.py
 COPY dashboard.html /app/SMB35/source/dashboard.html
 
-CMD [ "bash", "/app/docker-entrypoint.sh"]
+CMD [ "python3", "main.py"]

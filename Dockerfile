@@ -19,11 +19,13 @@ EXPOSE 20000 20001 20002
 WORKDIR /app
 
 RUN apt update && \
-    apt install -y makepasswd && \
-    apt install -y curl
-RUN apt-get install git -y && \
-    apt install python3.11 -y && \
-    apt install python3-pip -y  
+    apt install -y makepasswd \
+    curl \
+    snapd
+
+RUN apt-get install -y git \
+    python3.11 \
+    python3-pip
 
 RUN snap install --classic certbot
 

@@ -21,7 +21,8 @@ WORKDIR /app
 RUN apt update && \
     apt install -y makepasswd \
     curl \
-    snapd
+    python3-venv \
+    libaugeas0
 
 RUN apt-get install -y git \
     python3.11 \

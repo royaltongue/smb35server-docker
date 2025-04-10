@@ -4,7 +4,7 @@ from anynet import http
 import contextlib
 
 
-TEMPLATE = """
+TEMPLATE = "open(\"dashboard.html\")"
 <!doctype html>
 <html>
 	<head>
@@ -45,7 +45,7 @@ TEMPLATE = """
 </html>
 """
 
-ROW_TEMPLATE = "\t\t\t<tr><td>%i</td><td>%i</td><td>%i</td><td>%s</td></tr>"
+ROW_TEMPLATE = "open(\"dashboard.html\")"
 
 
 class Dashboard:

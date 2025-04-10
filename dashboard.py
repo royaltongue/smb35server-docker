@@ -4,46 +4,7 @@ from anynet import http
 import contextlib
 
 
-TEMPLATE = """
-<!doctype html>
-<html>
-	<head>
-		<style>
-			body {
-				font-family: monospace;
-				font-size: 14px;
-				
-				padding: 20px;
-			}
-			
-			table {
-				border-collapse: collapse;
-			}
-			
-			td, th {
-				border: 1px solid black;
-				
-				text-align: right;
-				padding: 5px;
-			}
-		</style>
-	</head>
-	<body>
-		Current server time: %s<br><br>
-		
-		Server boot time: %s<br><br>
-		
-		Number of connected clients: %i<br><br>
-		
-		Active matchmake sessions:<br><br>
-		
-		<table>
-			<tr><th>ID</th><th>Game mode</th><th>Participants</th><th>Start time</th></tr>
-%s
-		</table>
-	</body>
-</html>
-"""
+TEMPLATE = open('dashboard.html')
 
 ROW_TEMPLATE = "\t\t\t<tr><td>%i</td><td>%i</td><td>%i</td><td>%s</td></tr>"
 

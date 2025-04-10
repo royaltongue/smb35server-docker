@@ -5,10 +5,27 @@ services:
     environment:
       PUID: 1000 # Optional
       GUID: 1000 # Optional
-      SERVER_ADDRESS: myveryownsmbserver.com # Not used yet
+      DOMAIN_NAME: smb35.mydomain.tld # Server address, must be valid domain pointing to your public IP
+    volumes:
+      - ./smb35server-nginx/etc/letsencrypt/live/smb35server/fullchain.pem:/app/SMB35/source/resources/fullchain.pem
     hostname: smb35server-docker
     ports:
       - 20000:20000
       - 20001:20001
       - 20002:20002
+    restart: unless-stopped
+#################################
+  smb35server-nginx:
+    container_name: smb35server-nginx
+    image: jonasal/nginx-certbot:latest
+    environment:
+      CERTBOT_EMAIL: myemail@email.email # Must be real email
+      CERTBOT_AUTHENTICATOR: webroot # Webroot is default, see all options at https://github.com/JonasAlfredsson/docker-nginx-certbot/blob/master/docs/certbot_authenticators.md
+    volumes:
+      - ./smb35server-nginx/etc/letsencrypt:/etc/letsencrypt
+      - ./smb35-server-nginx/etc/nginx/user_conf.d:/etc/nginx/user_conf.d
+    hostname: smb35-nginx
+    ports:
+      - 80:80
+      - 443:443
     restart: unless-stopped

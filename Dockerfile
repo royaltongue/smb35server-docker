@@ -42,6 +42,8 @@ RUN pip3 install nintendoclients
 RUN mkdir SMB35/source/resources
 RUN cd SMB35/source/resources
 
+COPY dashboard.html /app/SMB35/source
+
 #RUN curl -O /app/SMB35/source/resources/chain.pem https://letsencrypt.org/certs/2024/e5.pem
 
 #ENTRYPOINT ["/bin/bash", "-c", "/docker-entrypoint.sh"]

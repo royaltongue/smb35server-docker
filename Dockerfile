@@ -29,7 +29,7 @@ RUN apt-get install -y git \
     python3-pip
 
 RUN groupadd -g ${GUID} smb35servergroup
-RUN useradd -um  ${PUID} smb35serveruser
+RUN useradd -m -u  ${PUID} smb35serveruser
 RUN smb35serverpassword="$(makepasswd --chars 20)" && echo 'smb35serveruser:'${smb35serverpassword} | chpasswd
 
 COPY docker-entrypoint.sh /app

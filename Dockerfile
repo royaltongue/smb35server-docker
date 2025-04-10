@@ -28,8 +28,6 @@ RUN apt-get install -y git \
     python3.11 \
     python3-pip
 
-RUN snap install --classic certbot
-
 RUN groupadd -g ${GUID} smb35servergroup
 RUN useradd -u  ${PUID} smb35serveruser
 RUN smb35serverpassword="$(makepasswd --chars 20)" && echo 'smb35serveruser:'${smb35serverpassword} | chpasswd

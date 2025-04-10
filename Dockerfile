@@ -22,7 +22,8 @@ RUN apt update && \
     apt install -y makepasswd \
     curl \
     python3-venv \
-    libaugeas0
+    libaugeas0 \
+    nginx
 
 RUN apt-get install -y git \
     python3.11 \

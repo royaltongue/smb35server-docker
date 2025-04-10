@@ -47,6 +47,4 @@ RUN rm /app/SMB35/source/dashboard.py
 COPY dashboard.py /app/SMB35/source/dashboard.py
 COPY dashboard.html /app/SMB35/source/dashboard.html
 
-RUN curl -O /app/SMB35/source/resources/chain.pem https://letsencrypt.org/certs/2024/e5.pem
-
 CMD [ "bash", "/app/docker-entrypoint.sh"]

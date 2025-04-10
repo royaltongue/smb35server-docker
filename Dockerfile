@@ -28,6 +28,11 @@ RUN apt-get install -y git \
     python3.11 \
     python3-pip
 
+RUN python3 -m venv /opt/certbot/
+RUN /opt/certbot/bin/pip install --upgrade pip
+RUN /opt/certbot/bin/pip install certbot
+RUN ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+
 RUN groupadd -g ${GUID} smb35servergroup
 RUN useradd -m -u  ${PUID} smb35serveruser
 RUN smb35serverpassword="$(makepasswd --chars 20)" && echo 'smb35serveruser:'${smb35serverpassword} | chpasswd
